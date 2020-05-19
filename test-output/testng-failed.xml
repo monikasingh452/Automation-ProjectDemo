@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="methods">
+  <parameter name="baseUrl" value="https://www.flipkart.com"/>
+  <parameter name="browser" value="chrome"/>
+  <test name="Test">
+    <parameter name="baseUrl" value="https://www.flipkart.com"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="scriptTest.LoginPageTest"/>
+      <class name="scriptTest.FKartHomeTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test(failed)" parallel="methods">
+    <parameter name="baseUrl" value="https://www.flipkart.com"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="scriptTest.FKartHomeTest">
+        <methods>
+          <include name="searchBook"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- scriptTest.FKartHomeTest -->
+      <class name="scriptTest.LoginPageTest">
+        <methods>
+          <include name="validLogin"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- scriptTest.LoginPageTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
